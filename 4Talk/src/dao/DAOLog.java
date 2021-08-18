@@ -9,10 +9,10 @@ import java.util.List;
 public class DAOLog extends DAO<Log>{
 
     public Log read(Object chave) {
-        String datahora = (String) chave;
+        String nome = (String) chave;
         Query q = manager.query();
         q.constrain(Usuario.class);
-        q.descend("datahora").constrain(datahora);
+        q.descend("nome").constrain(nome);
         List<Log> resultados = q.execute();
         if (resultados.size()>0)
             return resultados.get(0);
